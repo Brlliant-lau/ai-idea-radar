@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AI Idea Radar turns a rough idea into an executable AI project brief, MVP plan, risk map, and README outline."
+    />
+    <title>AI Idea Radar</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI project planning cockpit</p>
+          <h1>Turn a rough AI idea into a buildable project brief.</h1>
+          <p class="lede">
+            AI Idea Radar helps makers shape an idea into a practical public AI
+            project: positioning, MVP scope, user flow, risks, README structure,
+            and a shipping checklist.
+          </p>
+          <div class="hero-actions">
+            <a href="#radar" class="button primary">Run the radar</a>
+            <a href="https://github.com/" class="button ghost" target="_blank" rel="noreferrer">Prepare GitHub repo</a>
+          </div>
+        </div>
+        <div class="signal-card" aria-label="Project readiness snapshot">
+          <span class="pulse"></span>
+          <h2>Readiness Signals</h2>
+          <dl>
+            <div><dt>AI Value</dt><dd id="signal-ai">Ready to scan</dd></div>
+            <div><dt>MVP Size</dt><dd id="signal-size">Unknown</dd></div>
+            <div><dt>Public Demo</dt><dd id="signal-demo">Recommended</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="radar" class="workspace">
+        <form id="idea-form" class="panel input-panel">
+          <p class="eyebrow">Input</p>
+          <h2>Describe the project you want to build</h2>
+          <label>
+            Idea
+            <textarea id="idea" rows="6" required placeholder="Example: A tool that turns messy customer notes into follow-up plans for small sales teams."></textarea>
+          </label>
+          <div class="grid-two">
+            <label>
+              Target user
+              <input id="audience" required placeholder="Indie hackers, students, sales teams..." />
+            </label>
+            <label>
+              Main AI capability
+              <select id="capability">
+                <option value="analysis">Analysis and summarization</option>
+                <option value="writing">Writing and drafting</option>
+                <option value="coding">Code generation</option>
+                <option value="vision">Image or vision workflow</option>
+                <option value="agent">Agentic automation</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Constraint
+            <input id="constraint" placeholder="No backend, privacy-first, low cost, Chinese/English support..." />
+          </label>
+          <button class="button primary wide" type="submit">Generate project radar</button>
+        </form>
+
+        <section class="panel output-panel" aria-live="polite">
+          <p class="eyebrow">Output</p>
+          <h2>Project Radar</h2>
+          <div id="empty-state" class="empty-state">
+            Submit an idea to generate a contest-ready AI project plan.
+          </div>
+          <div id="result" class="result hidden"></div>
+        </section>
+      </section>
+    </main>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
